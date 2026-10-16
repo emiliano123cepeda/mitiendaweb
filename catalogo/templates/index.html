@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Maquillaje</title>
+    <title>593BARRAGAN MAQUILLAJE</title>
     <!-- Google Fonts & FontAwesome para iconos de redes sociales y WhatsApp -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,6 +28,8 @@
         h1 {
             color: #d63384;
             margin-bottom: 10px;
+            font-size: 28px;
+            letter-spacing: 1px;
         }
         /* Banner de Envío Gratis */
         .banner-envio {
@@ -199,7 +201,7 @@
             font-weight: 600;
         }
 
-        /* Botones flotantes de Redes Sociales y Contacto (Con transición suave para ocultar) */
+        /* Botones flotantes de Redes Sociales y Contacto */
         .flotante-social {
             position: fixed;
             bottom: 25px;
@@ -210,9 +212,9 @@
             z-index: 99;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        /* Clase para ocultar los botones al hacer scroll en móviles */
+        /* Clase para ocultar los botones al hacer scroll */
         .flotante-social.oculto {
-            transform: translateY(150px);
+            transform: translateY(120px);
             opacity: 0;
             pointer-events: none;
         }
@@ -246,7 +248,7 @@
     </div>
 
     <header>
-        <h1>✨ Catálogo de Maquillaje ✨</h1>
+        <h1>✨ 593BARRAGAN MAQUILLAJE ✨</h1>
         <p>Encuentra tus productos favoritos y pídelos al instante</p>
         
         <!-- Buscador Interactivo -->
@@ -286,14 +288,14 @@
         <div class="footer-content">
             <p class="ubicacion-info"><i class="fas fa-map-marker-alt"></i> Ubicación: Quito, Ecuador</p>
             <p>🛍️ Entregas seguras y atención personalizada directa por WhatsApp.</p>
-            <p>&copy; 2026 Catálogo de Maquillaje - Todos los derechos reservados.</p>
+            <p>&copy; 2026 593BARRAGAN MAQUILLAJE - Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- Botones flotantes de contacto rápido y Redes Sociales -->
     <div class="flotante-social" id="flotanteSocial">
         <!-- WhatsApp -->
-        <a href="https://wa.me/593983975138?text=Hola,%20vengo%20de%20su%20catálogo%20web%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="Escríbenos por WhatsApp">
+        <a href="https://wa.me/593983975138?text=Hola,%20vengo%20de%20su%20catálogo%20web%20593BARRAGAN%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="Escríbenos por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
         <!-- Instagram -->
@@ -312,7 +314,7 @@
 
     <!-- Scripts de interactividad -->
     <script>
-        // 1. Funcionalidad del Buscador en tiempo real
+        // 1. Buscador en tiempo real
         const buscador = document.getElementById('buscador');
         const tarjetas = document.querySelectorAll('.producto-card');
 
@@ -328,7 +330,7 @@
             });
         });
 
-        // 2. Funcionalidad del Modal de Imágenes (Lightbox)
+        // 2. Modal de Imágenes (Lightbox)
         function abrirModal(src) {
             const modal = document.getElementById('modal-imagen');
             const imgAmpliada = document.getElementById('img-ampliada');
@@ -340,13 +342,17 @@
             document.getElementById('modal-imagen').style.display = "none";
         }
 
-        // 3. Ocultar botones flotantes al hacer scroll
+        // 3. Ocultar botones flotantes al hacer scroll (Global para ventana y emuladores)
         let ultimoScroll = 0;
         const flotanteSocial = document.getElementById('flotanteSocial');
 
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > ultimoScroll && scrollTop > 30) {
+        window.addEventListener('scroll', evaluarScroll, true);
+        document.addEventListener('scroll', evaluarScroll, true);
+
+        function evaluarScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            
+            if (scrollTop > ultimoScroll && scrollTop > 15) {
                 // Bajando: Ocultar
                 flotanteSocial.classList.add('oculto');
             } else {
@@ -354,7 +360,7 @@
                 flotanteSocial.classList.remove('oculto');
             }
             ultimoScroll = scrollTop <= 0 ? 0 : scrollTop;
-        });
+        }
     </script>
 </body>
 </html>
