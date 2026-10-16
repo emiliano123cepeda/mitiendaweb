@@ -199,7 +199,7 @@
             font-weight: 600;
         }
 
-        /* Botones flotantes de Redes Sociales y Contacto */
+        /* Botones flotantes de Redes Sociales y Contacto (Con transición suave para ocultar) */
         .flotante-social {
             position: fixed;
             bottom: 25px;
@@ -208,6 +208,13 @@
             flex-direction: column;
             gap: 12px;
             z-index: 99;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        /* Clase para ocultar los botones al hacer scroll en móviles */
+        .flotante-social.oculto {
+            transform: translateY(150px);
+            opacity: 0;
+            pointer-events: none;
         }
         .btn-flotante {
             width: 55px;
@@ -261,7 +268,7 @@
             <div class="precio">${{ producto.precio }}</div>
             
             <!-- Botón directo a WhatsApp con mensaje personalizado -->
-            <a href="https://wa.me/593958980305?text=Hola,%20estoy%20interesada%20en%20el%20producto:%20{{ producto.nombre }}" target="_blank" class="btn-whatsapp">
+            <a href="https://wa.me/593983975138?text=Hola,%20estoy%20interesada%20en%20el%20producto:%20{{ producto.nombre }}" target="_blank" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
             </a>
         </div>
@@ -284,9 +291,9 @@
     </footer>
 
     <!-- Botones flotantes de contacto rápido y Redes Sociales -->
-    <div class="flotante-social">
+    <div class="flotante-social" id="flotanteSocial">
         <!-- WhatsApp -->
-        <a href="https://wa.me/593958980305?text=Hola,%20vengo%20de%20su%20catálogo%20web%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="Escríbenos por WhatsApp">
+        <a href="https://wa.me/593983975138?text=Hola,%20vengo%20de%20su%20catálogo%20web%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="Escríbenos por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
         <!-- Instagram -->
@@ -294,11 +301,11 @@
             <i class="fab fa-instagram"></i>
         </a>
         <!-- TikTok -->
-        <a href="https://www.tiktok.com/@tu_usuario" target="_blank" class="btn-flotante tk-flotante" title="Síguenos en TikTok">
+        <a href="https://www.tiktok.com/@amoria.beauty7?_r=1&_t=ZS-9AbkGlePBOj" target="_blank" class="btn-flotante tk-flotante" title="Síguenos en TikTok">
             <i class="fab fa-tiktok"></i>
         </a>
         <!-- Facebook -->
-        <a href="https://www.facebook.com/tu_pagina" target="_blank" class="btn-flotante fb-flotante" title="Síguenos en Facebook">
+        <a href="https://www.facebook.com/share/18w1djKrtz/" target="_blank" class="btn-flotante fb-flotante" title="Síguenos en Facebook">
             <i class="fab fa-facebook-f"></i>
         </a>
     </div>
@@ -332,6 +339,22 @@
         function cerrarModal() {
             document.getElementById('modal-imagen').style.display = "none";
         }
+
+        // 3. Ocultar botones flotantes al hacer scroll
+        let ultimoScroll = 0;
+        const flotanteSocial = document.getElementById('flotanteSocial');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > ultimoScroll && scrollTop > 30) {
+                // Bajando: Ocultar
+                flotanteSocial.classList.add('oculto');
+            } else {
+                // Subiendo o arriba: Mostrar
+                flotanteSocial.classList.remove('oculto');
+            }
+            ultimoScroll = scrollTop <= 0 ? 0 : scrollTop;
+        });
     </script>
 </body>
 </html>
