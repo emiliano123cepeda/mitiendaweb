@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amoria Beauty</title>
-    <!-- Google Fonts & FontAwesome para iconos de redes sociales y WhatsApp -->
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -39,7 +39,6 @@
             font-size: 15px;
             font-weight: 400;
         }
-        /* Banner de Envío Gratis */
         .banner-envio {
             background-color: #2c2c2c;
             color: #fdfbf7;
@@ -53,10 +52,7 @@
             justify-content: center;
             gap: 10px;
         }
-        .banner-envio i {
-            color: #d4af37;
-        }
-        /* Buscador interactivo */
+        .banner-envio i { color: #d4af37; }
         .search-container {
             margin: 25px auto 15px;
             text-align: center;
@@ -76,7 +72,6 @@
             border-color: #b83b63;
             box-shadow: 0 0 10px rgba(184, 59, 99, 0.2);
         }
-        /* Botones de filtro rápido por categoría */
         .filtros-container {
             display: flex;
             justify-content: center;
@@ -101,7 +96,6 @@
             color: #fff;
             border-color: #b83b63;
         }
-        /* Contenedor del catálogo */
         .catalogo-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -109,11 +103,9 @@
             max-width: 1200px;
             margin: 10px auto 40px;
             padding: 0 20px;
-            flex: 1;
             width: 100%;
             box-sizing: border-box;
         }
-        /* Tarjetas de productos */
         .producto-card {
             background: #ffffff;
             border-radius: 16px;
@@ -131,7 +123,6 @@
             transform: translateY(-6px);
             box-shadow: 0 15px 30px rgba(184, 59, 99, 0.12);
         }
-        /* Insignia de destacado */
         .badge-nuevo {
             position: absolute;
             top: 15px;
@@ -144,7 +135,6 @@
             border-radius: 10px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .producto-card img {
             width: 100%;
@@ -154,9 +144,7 @@
             cursor: pointer;
             transition: opacity 0.2s;
         }
-        .producto-card img:hover {
-            opacity: 0.92;
-        }
+        .producto-card img:hover { opacity: 0.92; }
         .categoria {
             font-size: 11px;
             text-transform: uppercase;
@@ -184,7 +172,6 @@
             color: #b83b63;
             margin-bottom: 15px;
         }
-        /* Botón de compra / WhatsApp con precio incluido */
         .btn-whatsapp {
             background-color: #25d366;
             color: white;
@@ -205,7 +192,76 @@
             transform: scale(1.02);
         }
 
-        /* Ventana Modal (Lightbox) para agrandar imágenes */
+        /* Sección de Reseñas */
+        .seccion-reseñas {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .seccion-reseñas h2 {
+            text-align: center;
+            color: #b83b63;
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+        .form-reseña {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid #fae1e7;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-reseña input, .form-reseña select, .form-reseña textarea {
+            padding: 12px;
+            border: 1px solid #e0b1cb;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+        .form-reseña input:focus, .form-reseña select:focus, .form-reseña textarea:focus {
+            border-color: #b83b63;
+        }
+        .btn-enviar-reseña {
+            background-color: #b83b63;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-enviar-reseña:hover { background-color: #9c2d51; }
+
+        .lista-reseñas {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .tarjeta-reseña {
+            background: #fff;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border-left: 4px solid #b83b63;
+        }
+        .tarjeta-reseña .cliente-info {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 15px;
+            color: #2c2c2c;
+            margin-bottom: 5px;
+        }
+        .estrellas { color: #f39c12; font-size: 14px; }
+        .comentario-texto { font-size: 13px; color: #665c60; }
+
+        /* Modal Lightbox */
         #modal-imagen {
             display: none;
             position: fixed;
@@ -222,7 +278,6 @@
             max-width: 90%;
             max-height: 85%;
             border-radius: 12px;
-            box-shadow: 0 0 25px rgba(255,255,255,0.15);
         }
         #modal-imagen .cerrar-modal {
             position: absolute;
@@ -234,13 +289,12 @@
             cursor: pointer;
         }
 
-        /* Pie de página (Footer) elegante con horario 24/7 */
         footer {
             background-color: #1a1a1a;
             color: #fff;
             text-align: center;
             padding: 35px 20px;
-            margin-top: 50px;
+            margin-top: auto;
             font-size: 14px;
             border-top: 3px solid #b83b63;
         }
@@ -251,17 +305,9 @@
             flex-direction: column;
             gap: 12px;
         }
-        footer p {
-            margin: 4px 0;
-            color: #b3afb1;
-        }
-        footer .ubicacion-info {
-            color: #f3c6d1;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+        footer p { margin: 4px 0; color: #b3afb1; }
+        footer .ubicacion-info { color: #f3c6d1; font-weight: 600; }
 
-        /* Botones flotantes de Redes Sociales */
         .flotante-social {
             position: fixed;
             bottom: 25px;
@@ -272,11 +318,7 @@
             z-index: 99;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        .flotante-social.oculto {
-            transform: translateY(130px);
-            opacity: 0;
-            pointer-events: none;
-        }
+        .flotante-social.oculto { transform: translateY(130px); opacity: 0; pointer-events: none; }
         .btn-flotante {
             width: 55px;
             height: 55px;
@@ -287,12 +329,10 @@
             color: white;
             font-size: 24px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-            transition: transform 0.2s;
             text-decoration: none;
+            transition: transform 0.2s;
         }
-        .btn-flotante:hover {
-            transform: scale(1.12);
-        }
+        .btn-flotante:hover { transform: scale(1.12); }
         .wa-flotante { background-color: #25d366; }
         .ig-flotante { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
         .tk-flotante { background-color: #000000; }
@@ -301,7 +341,6 @@
 </head>
 <body>
 
-    <!-- Banner Superior de Envío Gratis -->
     <div class="banner-envio">
         <i class="fas fa-shipping-fast"></i> ¡Envío gratuito dentro de la ciudad de Quito a partir de $4.99 en compras! 🚚✨
     </div>
@@ -310,13 +349,11 @@
         <h1>✨ Amoria Beauty ✨</h1>
         <p>Tu destino favorito en maquillaje y belleza</p>
         
-        <!-- Buscador Interactivo -->
         <div class="search-container">
             <input type="text" id="buscador" placeholder="🔍 Buscar producto por nombre...">
         </div>
     </header>
 
-    <!-- Filtros rápidos por categoría -->
     <div class="filtros-container">
         <button class="btn-filtro activo" onclick="filtrarCategoria('todos')">Todos</button>
         <button class="btn-filtro" onclick="filtrarCategoria('labiales')">Labiales</button>
@@ -324,7 +361,7 @@
         <button class="btn-filtro" onclick="filtrarCategoria('rostro')">Rostro</button>
     </div>
 
-    <!-- Contenedor dinámico de Django -->
+    <!-- Catálogo de Productos -->
     <div class="catalogo-container" id="contenedor-productos">
         {% for producto in productos %}
         <div class="producto-card" data-nombre="{{ producto.nombre|lower }}" data-categoria="{{ producto.categoria|lower }}">
@@ -337,7 +374,6 @@
             <div class="descripcion">{{ producto.descripcion }}</div>
             <div class="precio">${{ producto.precio }}</div>
             
-            <!-- Botón de WhatsApp con mensaje inteligente que incluye el precio -->
             <a href="https://wa.me/593983975138?text=Hola%20Amoria%20Beauty,%20estoy%20interesada%20en%20comprar%20el%20producto:%20*{{ producto.nombre }}*%20con%20un%20precio%20de%20*${{ producto.precio }}*.%20¿Me%20ayudas%20con%20el%20stock?" target="_blank" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
             </a>
@@ -345,13 +381,53 @@
         {% endfor %}
     </div>
 
-    <!-- Modal para imagen ampliada -->
+    <!-- Sección de Reseñas y Calificaciones -->
+    <section class="seccion-reseñas">
+        <h2>💖 Lo que opinan nuestras Amoria Lovers</h2>
+        
+        <!-- Formulario para dejar reseña -->
+        <form method="POST" class="form-reseña">
+            {% csrf_token %}
+            <input type="text" name="nombre" placeholder="Tu nombre o usuario" required>
+            <select name="calificacion" required>
+                <option value="" disabled selected>⭐ Selecciona tu calificación</option>
+                <option value="5">⭐⭐⭐⭐⭐ (5/5 - ¡Excelente!)</option>
+                <option value="4">⭐⭐⭐⭐ (4/5 - Muy bueno)</option>
+                <option value="3">⭐⭐⭐ (3/5 - Bueno)</option>
+                <option value="2">⭐⭐ (2/5 - Regular)</option>
+                <option value="1">⭐ (1/5 - Malo)</option>
+            </select>
+            <textarea name="comentario" rows="3" placeholder="Escribe tu experiencia con nuestros productos..." required></textarea>
+            <button type="submit" class="btn-enviar-reseña">Publicar Reseña</button>
+        </form>
+
+        <!-- Lista de Reseñas publicadas -->
+        <div class="lista-reseñas">
+            {% for r in reseñas %}
+            <div class="tarjeta-reseña">
+                <div class="cliente-info">
+                    <span>{{ r.nombre_cliente }}</span>
+                    <span class="estrellas">
+                        {% if r.calificacion == 5 %}⭐⭐⭐⭐⭐{% endif %}
+                        {% if r.calificacion == 4 %}⭐⭐⭐⭐{% endif %}
+                        {% if r.calificacion == 3 %}⭐⭐⭐{% endif %}
+                        {% if r.calificacion == 2 %}⭐⭐{% endif %}
+                        {% if r.calificacion == 1 %}⭐{% endif %}
+                    </span>
+                </div>
+                <div class="comentario-texto">{{ r.comentario }}</div>
+            </div>
+            {% empty %}
+            <p style="text-align: center; color: #888;">Aún no hay reseñas. ¡Sé la primera en dejarnos tu opinión!</p>
+            {% endfor %}
+        </div>
+    </section>
+
     <div id="modal-imagen" onclick="cerrarModal()">
         <span class="cerrar-modal">&times;</span>
         <img id="img-ampliada">
     </div>
 
-    <!-- Pie de página con Ubicación, Atención 24/7 y Derechos -->
     <footer>
         <div class="footer-content">
             <p class="ubicacion-info"><i class="fas fa-map-marker-alt"></i> Ubicación: Quito, Ecuador</p>
@@ -361,29 +437,22 @@
         </div>
     </footer>
 
-    <!-- Botones flotantes de contacto rápido y Redes Sociales -->
     <div class="flotante-social" id="flotanteSocial">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/593983975138?text=Hola,%20vengo%20del%20catálogo%20de%20Amoria%20Beauty%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="Escríbenos por WhatsApp">
+        <a href="https://wa.me/593983975138?text=Hola,%20vengo%20del%20catálogo%20de%20Amoria%20Beauty%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/beautyamoria?vrfl=MXJoYm40dWNzMHM3Ng==" target="_blank" class="btn-flotante ig-flotante" title="Síguenos en Instagram">
+        <a href="https://www.instagram.com/beautyamoria?vrfl=MXJoYm40dWNzMHM3Ng==" target="_blank" class="btn-flotante ig-flotante" title="Instagram">
             <i class="fab fa-instagram"></i>
         </a>
-        <!-- TikTok -->
-        <a href="https://www.tiktok.com/@amoria.beauty7?_r=1&_t=ZS-9AbkGlePBOj" target="_blank" class="btn-flotante tk-flotante" title="Síguenos en TikTok">
+        <a href="https://www.tiktok.com/@amoria.beauty7?_r=1&_t=ZS-9AbkGlePBOj" target="_blank" class="btn-flotante tk-flotante" title="TikTok">
             <i class="fab fa-tiktok"></i>
         </a>
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/share/18w1djKrtz/" target="_blank" class="btn-flotante fb-flotante" title="Síguenos en Facebook">
+        <a href="https://www.facebook.com/share/18w1djKrtz/" target="_blank" class="btn-flotante fb-flotante" title="Facebook">
             <i class="fab fa-facebook-f"></i>
         </a>
     </div>
 
-    <!-- Scripts de interactividad -->
     <script>
-        // 1. Buscador en tiempo real
         const buscador = document.getElementById('buscador');
         const tarjetas = document.querySelectorAll('.producto-card');
 
@@ -399,9 +468,7 @@
             });
         });
 
-        // 1.1 Filtrar por botones de categoría rápida
         function filtrarCategoria(cat) {
-            // Cambiar estilo visual de botones
             document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
             event.target.classList.add('activo');
 
@@ -415,7 +482,6 @@
             });
         }
 
-        // 2. Modal de Imágenes (Lightbox)
         function abrirModal(src) {
             const modal = document.getElementById('modal-imagen');
             const imgAmpliada = document.getElementById('img-ampliada');
@@ -427,16 +493,13 @@
             document.getElementById('modal-imagen').style.display = "none";
         }
 
-        // 3. Ocultar botones flotantes al hacer scroll
         let ultimoScroll = 0;
         const flotanteSocial = document.getElementById('flotanteSocial');
-
         window.addEventListener('scroll', evaluarScroll, true);
         document.addEventListener('scroll', evaluarScroll, true);
 
         function evaluarScroll() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-            
             if (scrollTop > ultimoScroll && scrollTop > 15) {
                 flotanteSocial.classList.add('oculto');
             } else {

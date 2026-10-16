@@ -9,3 +9,12 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Reseña(models.Model):
+    nombre_cliente = models.CharField(max_length=100, verbose_name="Nombre de la Clienta")
+    calificacion = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)], verbose_name="Calificación (Estrellas)")
+    comentario = models.TextField(verbose_name="Comentario")
+    fecha = models.DateTimeField(auto_now_add=True, verbose_name="Fecha")
+
+    def __str__(self):
+        return f"{self.nombre_cliente} - {self.calificacion} Estrellas"
