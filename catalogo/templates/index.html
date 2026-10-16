@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #fdfbf7; /* Fondo crema muy elegante */
+            background-color: #fdfbf7;
             margin: 0;
             padding: 0;
             color: #2c2c2c;
@@ -27,7 +27,7 @@
             box-shadow: 0 4px 15px rgba(184, 59, 99, 0.05);
         }
         h1 {
-            color: #b83b63; /* Rosa elegante y llamativo */
+            color: #b83b63;
             margin-bottom: 8px;
             font-size: 32px;
             font-weight: 700;
@@ -54,11 +54,11 @@
             gap: 10px;
         }
         .banner-envio i {
-            color: #d4af37; /* Toque dorado elegante */
+            color: #d4af37;
         }
         /* Buscador interactivo */
         .search-container {
-            margin: 25px auto 10px;
+            margin: 25px auto 15px;
             text-align: center;
         }
         #buscador {
@@ -76,13 +76,38 @@
             border-color: #b83b63;
             box-shadow: 0 0 10px rgba(184, 59, 99, 0.2);
         }
+        /* Botones de filtro rápido por categoría */
+        .filtros-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+        .btn-filtro {
+            background-color: #fff;
+            border: 1px solid #e0b1cb;
+            color: #b83b63;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-filtro:hover, .btn-filtro.activo {
+            background-color: #b83b63;
+            color: #fff;
+            border-color: #b83b63;
+        }
         /* Contenedor del catálogo */
         .catalogo-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 10px auto 40px;
             padding: 0 20px;
             flex: 1;
             width: 100%;
@@ -100,10 +125,26 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
         }
         .producto-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 15px 30px rgba(184, 59, 99, 0.12);
+        }
+        /* Insignia de destacado */
+        .badge-nuevo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #b83b63;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .producto-card img {
             width: 100%;
@@ -143,7 +184,7 @@
             color: #b83b63;
             margin-bottom: 15px;
         }
-        /* Botón de compra / WhatsApp */
+        /* Botón de compra / WhatsApp con precio incluido */
         .btn-whatsapp {
             background-color: #25d366;
             color: white;
@@ -193,7 +234,7 @@
             cursor: pointer;
         }
 
-        /* Pie de página (Footer) elegante */
+        /* Pie de página (Footer) elegante con horario 24/7 */
         footer {
             background-color: #1a1a1a;
             color: #fff;
@@ -231,7 +272,6 @@
             z-index: 99;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        /* Clase para ocultar los botones al hacer scroll */
         .flotante-social.oculto {
             transform: translateY(130px);
             opacity: 0;
@@ -276,10 +316,19 @@
         </div>
     </header>
 
+    <!-- Filtros rápidos por categoría -->
+    <div class="filtros-container">
+        <button class="btn-filtro activo" onclick="filtrarCategoria('todos')">Todos</button>
+        <button class="btn-filtro" onclick="filtrarCategoria('labiales')">Labiales</button>
+        <button class="btn-filtro" onclick="filtrarCategoria('ojos')">Ojos</button>
+        <button class="btn-filtro" onclick="filtrarCategoria('rostro')">Rostro</button>
+    </div>
+
     <!-- Contenedor dinámico de Django -->
     <div class="catalogo-container" id="contenedor-productos">
         {% for producto in productos %}
-        <div class="producto-card" data-nombre="{{ producto.nombre|lower }}">
+        <div class="producto-card" data-nombre="{{ producto.nombre|lower }}" data-categoria="{{ producto.categoria|lower }}">
+            <div class="badge-nuevo">Nuevo</div>
             {% if producto.imagen %}
             <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" onclick="abrirModal(this.src)">
             {% endif %}
@@ -288,8 +337,8 @@
             <div class="descripcion">{{ producto.descripcion }}</div>
             <div class="precio">${{ producto.precio }}</div>
             
-            <!-- Botón directo a WhatsApp con mensaje personalizado -->
-            <a href="https://wa.me/593983975138?text=Hola,%20estoy%20interesada%20en%20el%20producto:%20{{ producto.nombre }}" target="_blank" class="btn-whatsapp">
+            <!-- Botón de WhatsApp con mensaje inteligente que incluye el precio -->
+            <a href="https://wa.me/593983975138?text=Hola%20Amoria%20Beauty,%20estoy%20interesada%20en%20comprar%20el%20producto:%20*{{ producto.nombre }}*%20con%20un%20precio%20de%20*${{ producto.precio }}*.%20¿Me%20ayudas%20con%20el%20stock?" target="_blank" class="btn-whatsapp">
                 <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
             </a>
         </div>
@@ -302,10 +351,11 @@
         <img id="img-ampliada">
     </div>
 
-    <!-- Pie de página con Ubicación e Info -->
+    <!-- Pie de página con Ubicación, Atención 24/7 y Derechos -->
     <footer>
         <div class="footer-content">
             <p class="ubicacion-info"><i class="fas fa-map-marker-alt"></i> Ubicación: Quito, Ecuador</p>
+            <p><i class="far fa-clock"></i> Atención y Pedidos Online: <strong>24/7 (Todos los días)</strong></p>
             <p>🛍️ Entregas seguras y atención personalizada directa por WhatsApp.</p>
             <p>&copy; 2026 Amoria Beauty - Todos los derechos reservados.</p>
         </div>
@@ -349,6 +399,22 @@
             });
         });
 
+        // 1.1 Filtrar por botones de categoría rápida
+        function filtrarCategoria(cat) {
+            // Cambiar estilo visual de botones
+            document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('activo'));
+            event.target.classList.add('activo');
+
+            tarjetas.forEach(tarjeta => {
+                const categoriaProducto = tarjeta.getAttribute('data-categoria');
+                if (cat === 'todos' || categoriaProducto.includes(cat)) {
+                    tarjeta.style.display = "flex";
+                } else {
+                    tarjeta.style.display = "none";
+                }
+            });
+        }
+
         // 2. Modal de Imágenes (Lightbox)
         function abrirModal(src) {
             const modal = document.getElementById('modal-imagen');
@@ -372,10 +438,8 @@
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
             
             if (scrollTop > ultimoScroll && scrollTop > 15) {
-                // Bajando: Ocultar
                 flotanteSocial.classList.add('oculto');
             } else {
-                // Subiendo o arriba: Mostrar
                 flotanteSocial.classList.remove('oculto');
             }
             ultimoScroll = scrollTop <= 0 ? 0 : scrollTop;
