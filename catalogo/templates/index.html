@@ -3,74 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>593BARRAGAN MAQUILLAJE</title>
+    <title>Amoria Beauty</title>
     <!-- Google Fonts & FontAwesome para iconos de redes sociales y WhatsApp -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #fff5f8;
+            background-color: #fdfbf7; /* Fondo crema muy elegante */
             margin: 0;
             padding: 0;
-            color: #333;
+            color: #2c2c2c;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         header {
             text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, #ffe6f0, #ffccd5);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding: 35px 20px;
+            background: linear-gradient(135deg, #fff0f3, #ffe3e8);
+            border-bottom: 2px solid #f3c6d1;
+            box-shadow: 0 4px 15px rgba(184, 59, 99, 0.05);
         }
         h1 {
-            color: #d63384;
-            margin-bottom: 10px;
-            font-size: 28px;
-            letter-spacing: 1px;
+            color: #b83b63; /* Rosa elegante y llamativo */
+            margin-bottom: 8px;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        header p {
+            color: #665c60;
+            font-size: 15px;
+            font-weight: 400;
         }
         /* Banner de Envío Gratis */
         .banner-envio {
-            background-color: #ffe0eb;
-            color: #b01a61;
+            background-color: #2c2c2c;
+            color: #fdfbf7;
             text-align: center;
-            padding: 10px;
-            font-weight: 600;
+            padding: 12px;
+            font-weight: 500;
             font-size: 14px;
-            border-bottom: 1px solid #ffccd5;
+            letter-spacing: 0.5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
+        }
+        .banner-envio i {
+            color: #d4af37; /* Toque dorado elegante */
         }
         /* Buscador interactivo */
         .search-container {
-            margin: 20px auto;
+            margin: 25px auto 10px;
             text-align: center;
         }
         #buscador {
-            width: 80%;
-            max-width: 400px;
-            padding: 12px 20px;
-            border: 2px solid #ffb3c6;
+            width: 85%;
+            max-width: 450px;
+            padding: 14px 22px;
+            border: 2px solid #e0b1cb;
             border-radius: 30px;
-            font-size: 16px;
+            font-size: 15px;
             outline: none;
+            background-color: #ffffff;
             transition: all 0.3s ease;
         }
         #buscador:focus {
-            border-color: #d63384;
-            box-shadow: 0 0 8px rgba(214, 51, 132, 0.2);
+            border-color: #b83b63;
+            box-shadow: 0 0 10px rgba(184, 59, 99, 0.2);
         }
         /* Contenedor del catálogo */
         .catalogo-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 40px auto;
             padding: 0 20px;
             flex: 1;
             width: 100%;
@@ -79,53 +91,56 @@
         /* Tarjetas de productos */
         .producto-card {
             background: #ffffff;
-            border-radius: 15px;
-            padding: 15px;
+            border-radius: 16px;
+            padding: 18px;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            border: 1px solid #fae1e7;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
         .producto-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(214, 51, 132, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(184, 59, 99, 0.12);
         }
         .producto-card img {
             width: 100%;
-            height: 200px;
+            height: 210px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: opacity 0.2s;
         }
         .producto-card img:hover {
-            opacity: 0.9;
+            opacity: 0.92;
         }
         .categoria {
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            color: #888;
-            margin-top: 10px;
-            letter-spacing: 1px;
+            color: #998891;
+            margin-top: 12px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
         .nombre {
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 600;
-            color: #222;
+            color: #2c2c2c;
             margin: 8px 0;
         }
         .descripcion {
             font-size: 13px;
-            color: #666;
-            margin-bottom: 10px;
+            color: #6c6368;
+            margin-bottom: 12px;
             flex-grow: 1;
+            line-height: 1.4;
         }
         .precio {
-            font-size: 18px;
-            font-weight: bold;
-            color: #d63384;
+            font-size: 19px;
+            font-weight: 700;
+            color: #b83b63;
             margin-bottom: 15px;
         }
         /* Botón de compra / WhatsApp */
@@ -133,18 +148,20 @@
             background-color: #25d366;
             color: white;
             text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 25px;
+            padding: 11px 18px;
+            border-radius: 30px;
             font-size: 14px;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
         }
         .btn-whatsapp:hover {
             background-color: #1ebe5d;
+            transform: scale(1.02);
         }
 
         /* Ventana Modal (Lightbox) para agrandar imágenes */
@@ -156,52 +173,54 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(28, 28, 28, 0.85);
             align-items: center;
             justify-content: center;
         }
         #modal-imagen img {
             max-width: 90%;
             max-height: 85%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(255,255,255,0.15);
         }
         #modal-imagen .cerrar-modal {
             position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 35px;
+            top: 25px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        /* Pie de página (Footer) con ubicación y detalles */
+        /* Pie de página (Footer) elegante */
         footer {
-            background-color: #222;
+            background-color: #1a1a1a;
             color: #fff;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
+            padding: 35px 20px;
+            margin-top: 50px;
             font-size: 14px;
+            border-top: 3px solid #b83b63;
         }
         footer .footer-content {
             max-width: 800px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         footer p {
-            margin: 5px 0;
-            color: #ccc;
+            margin: 4px 0;
+            color: #b3afb1;
         }
         footer .ubicacion-info {
-            color: #ffb3c6;
+            color: #f3c6d1;
             font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
-        /* Botones flotantes de Redes Sociales y Contacto */
+        /* Botones flotantes de Redes Sociales */
         .flotante-social {
             position: fixed;
             bottom: 25px;
@@ -214,7 +233,7 @@
         }
         /* Clase para ocultar los botones al hacer scroll */
         .flotante-social.oculto {
-            transform: translateY(120px);
+            transform: translateY(130px);
             opacity: 0;
             pointer-events: none;
         }
@@ -227,12 +246,12 @@
             justify-content: center;
             color: white;
             font-size: 24px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
             transition: transform 0.2s;
             text-decoration: none;
         }
         .btn-flotante:hover {
-            transform: scale(1.1);
+            transform: scale(1.12);
         }
         .wa-flotante { background-color: #25d366; }
         .ig-flotante { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
@@ -248,8 +267,8 @@
     </div>
 
     <header>
-        <h1>✨ 593BARRAGAN MAQUILLAJE ✨</h1>
-        <p>Encuentra tus productos favoritos y pídelos al instante</p>
+        <h1>✨ Amoria Beauty ✨</h1>
+        <p>Tu destino favorito en maquillaje y belleza</p>
         
         <!-- Buscador Interactivo -->
         <div class="search-container">
@@ -288,14 +307,14 @@
         <div class="footer-content">
             <p class="ubicacion-info"><i class="fas fa-map-marker-alt"></i> Ubicación: Quito, Ecuador</p>
             <p>🛍️ Entregas seguras y atención personalizada directa por WhatsApp.</p>
-            <p>&copy; 2026 593BARRAGAN MAQUILLAJE - Todos los derechos reservados.</p>
+            <p>&copy; 2026 Amoria Beauty - Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <!-- Botones flotantes de contacto rápido y Redes Sociales -->
     <div class="flotante-social" id="flotanteSocial">
         <!-- WhatsApp -->
-        <a href="https://wa.me/593983975138?text=Hola,%20vengo%20de%20su%20catálogo%20web%20593BARRAGAN%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="Escríbenos por WhatsApp">
+        <a href="https://wa.me/593983975138?text=Hola,%20vengo%20del%20catálogo%20de%20Amoria%20Beauty%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="Escríbenos por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
         <!-- Instagram -->
@@ -342,7 +361,7 @@
             document.getElementById('modal-imagen').style.display = "none";
         }
 
-        // 3. Ocultar botones flotantes al hacer scroll (Global para ventana y emuladores)
+        // 3. Ocultar botones flotantes al hacer scroll
         let ultimoScroll = 0;
         const flotanteSocial = document.getElementById('flotanteSocial');
 
