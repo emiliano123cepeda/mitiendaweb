@@ -18,3 +18,11 @@ class Reseña(models.Model):
 
     def __str__(self):
         return f"{self.nombre_cliente} - {self.calificacion} Estrellas"
+
+class Cupon(models.Model):
+    codigo = models.CharField(max_length=50, unique=True, verbose_name="Código de Cupón")
+    descuento_porcentaje = models.IntegerField(verbose_name="Descuento en % (Ej: 10 para 10%)")
+    activo = models.BooleanField(default=True, verbose_name="¿Está activo?")
+
+    def __str__(self):
+        return f"{self.codigo} ({self.descuento_porcentaje}%)"
