@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from catalogo.views import lista_productos
+from catalogo.views import index
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lista_productos, name='inicio'), # Esta línea muestra tu catálogo al entrar a la raíz
+    path('', index, name='inicio'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
