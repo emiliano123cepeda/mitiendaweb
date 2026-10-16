@@ -15,6 +15,9 @@
             margin: 0;
             padding: 0;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
             text-align: center;
@@ -25,6 +28,20 @@
         h1 {
             color: #d63384;
             margin-bottom: 10px;
+        }
+        /* Banner de Envío Gratis */
+        .banner-envio {
+            background-color: #ffe0eb;
+            color: #b01a61;
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            border-bottom: 1px solid #ffccd5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         /* Buscador interactivo */
         .search-container {
@@ -53,6 +70,9 @@
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
+            flex: 1;
+            width: 100%;
+            box-sizing: border-box;
         }
         /* Tarjetas de productos */
         .producto-card {
@@ -154,6 +174,31 @@
             cursor: pointer;
         }
 
+        /* Pie de página (Footer) con ubicación y detalles */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        footer .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        footer p {
+            margin: 5px 0;
+            color: #ccc;
+        }
+        footer .ubicacion-info {
+            color: #ffb3c6;
+            font-weight: 600;
+        }
+
         /* Botones flotantes de Redes Sociales y Contacto */
         .flotante-social {
             position: fixed;
@@ -187,6 +232,11 @@
     </style>
 </head>
 <body>
+
+    <!-- Banner Superior de Envío Gratis -->
+    <div class="banner-envio">
+        <i class="fas fa-shipping-fast"></i> ¡Envío gratuito dentro de la ciudad de Quito a partir de $4.99 en compras! 🚚✨
+    </div>
 
     <header>
         <h1>✨ Catálogo de Maquillaje ✨</h1>
@@ -224,21 +274,30 @@
         <img id="img-ampliada">
     </div>
 
+    <!-- Pie de página con Ubicación e Info -->
+    <footer>
+        <div class="footer-content">
+            <p class="ubicacion-info"><i class="fas fa-map-marker-alt"></i> Ubicación: Quito, Ecuador</p>
+            <p>🛍️ Entregas seguras y atención personalizada directa por WhatsApp.</p>
+            <p>&copy; 2026 Catálogo de Maquillaje - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
     <!-- Botones flotantes de contacto rápido y Redes Sociales -->
     <div class="flotante-social">
         <!-- WhatsApp -->
         <a href="https://wa.me/593958980305?text=Hola,%20vengo%20de%20su%20catálogo%20web%20y%20quiero%20más%20información." target="_blank" class="btn-flotante wa-flotante" title="Escríbenos por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <!-- Instagram (Beauty Amoria) -->
+        <!-- Instagram -->
         <a href="https://www.instagram.com/beautyamoria?vrfl=MXJoYm40dWNzMHM3Ng==" target="_blank" class="btn-flotante ig-flotante" title="Síguenos en Instagram">
             <i class="fab fa-instagram"></i>
         </a>
-        <!-- TikTok (Reemplaza 'tu_usuario' por el link real de tu TikTok cuando lo tengas) -->
+        <!-- TikTok -->
         <a href="https://www.tiktok.com/@tu_usuario" target="_blank" class="btn-flotante tk-flotante" title="Síguenos en TikTok">
             <i class="fab fa-tiktok"></i>
         </a>
-        <!-- Facebook (Reemplaza 'tu_pagina' por el link real de tu Facebook cuando lo tengas) -->
+        <!-- Facebook -->
         <a href="https://www.facebook.com/tu_pagina" target="_blank" class="btn-flotante fb-flotante" title="Síguenos en Facebook">
             <i class="fab fa-facebook-f"></i>
         </a>
